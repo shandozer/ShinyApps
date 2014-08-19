@@ -1,5 +1,7 @@
 library(shiny)
 
+# UI uses a slider to control number of bins displayed in Histogram
+
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
     
