@@ -1,7 +1,17 @@
 library(shiny)
 
-# Define server logic required to draw a histogram
-shinyServer(function(input, output) {
-    
+# server.R
 
-})
+shinyServer(
+    function(input, output) {
+        
+        output$text1 <- renderText({ 
+            paste("You have selected", input$var)
+        })
+        
+        output$text2 <- renderText({
+            paste("You have selected a range from ", input$range[1], " to ", input$range[2])
+        })
+        
+    }
+)
