@@ -19,10 +19,6 @@ shinyUI(fluidPage(
                         min = 0, max = 100, value = c(0, 100))
         ),
         
-        mainPanel(
-            textOutput("text1"), 
-            br(),
-            textOutput("text2")
-        )
+        mainPanel(plotOutput("map"))
     )
 ))
