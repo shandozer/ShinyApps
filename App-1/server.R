@@ -1,3 +1,4 @@
+# 'App-1' is from the RStudio tutorial series... along with all other 'App-#'
 library(shiny)
 
 # Define server logic required to draw a histogram

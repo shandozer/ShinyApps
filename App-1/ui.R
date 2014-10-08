@@ -1,3 +1,4 @@
+# 'App-1' is from the RStudio tutorial series... along with all other 'App-#'
 library(shiny)
 
 # UI uses a slider to control number of bins displayed in Histogram
