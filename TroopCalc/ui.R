@@ -1,5 +1,7 @@
 library(shiny)
 # ui.R
+# 
+VERSION = '1.0'
 
 shinyUI(fluidPage(
 #     titlePanel("TroopCalc"),
