@@ -1,7 +1,8 @@
 library(shiny)
+source("helpers.R")
 # ui.R
 # 
-VERSION = '1.1'
+VERSION = '1.2'
 
 shinyUI(fluidPage(title="TroopCalculator",
 #     titlePanel("TroopCalc"),
@@ -14,7 +15,7 @@ shinyUI(fluidPage(title="TroopCalculator",
         
     sidebarLayout(
     sidebarPanel(
-        h3(helpText("Enter your information...")),
+        h3(helpText("Enter some basic information...")),
         fluidRow(theme = "bootstrap.css",
             column(3,
                    radioButtons("th", label = h5("Town Hall Level"),
@@ -86,7 +87,7 @@ shinyUI(fluidPage(title="TroopCalculator",
             
             column(3, 
                    sliderInput("num_wb", label = h5("Wall Breakers"),
-                               min = 0, max = 15, value = 4, step = 2)
+                               min = 0, max = 14, value = 4, step = 1)
                    ),
             
             column(3, 
