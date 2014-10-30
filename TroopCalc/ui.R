@@ -43,7 +43,8 @@ shinyUI(fluidPage(title="TroopCalculator",
                                                      "Camp 3" = 3,
                                                      "Camp 4" = 4),
                                       selected = 1))
-     )),
+        )
+     ),
 
     mainPanel(
         fluidRow(
@@ -77,17 +78,39 @@ shinyUI(fluidPage(title="TroopCalculator",
                                 choices = list("1" = 1, "2" = 2,
                                                "3" = 3, "4" = 4,
                                                "5" = 5, "6" = 6),
+                                selected = 1, inline=T),
+                   
+                   radioButtons("giant_lvl", label = h4("Giants", align = "center"),
+                                choices = list("1" = 1, "2" = 2,
+                                               "3" = 3, "4" = 4,
+                                               "5" = 5, "6" = 6),
+                                selected = 1, inline=T),
+                   
+                   radioButtons("wb_lvl", label = h4("Breakers", align = "center"),
+                                choices = list("1" = 1, "2" = 2,
+                                               "3" = 3, "4" = 4,
+                                               "5" = 5, "6" = 6),
                                 selected = 1, inline=T)
-                   )
+                   ),
+            fluidRow(
+                h4("Army Costs", align= "center"),
+                h5(textOutput("text1"))
+            ),
+            fluidRow(
+                h4("Total Army Costs", align= "left"),
+                h5(textOutput("text2"))
+            )
         ),
         br(),
         hr(),
         h4("Compose an army", align = "center"),
         fluidRow(
             
-            column(3, 
-                   sliderInput("num_wb", label = h5("Wall Breakers"),
-                               min = 0, max = 14, value = 4, step = 1)
+            column(3,
+                   numericInput("army_size", 
+                                label = h5("Total army size"), 
+                                value = 200)
+                   
                    ),
             
             column(3, 
@@ -106,11 +129,13 @@ shinyUI(fluidPage(title="TroopCalculator",
                    ),
             
             column(3, 
+                   sliderInput("num_wb", label = h5("Wall Breakers"),
+                               min = 0, max = 14, value = 4, step = 1),
                    sliderInput("num_mins", label = h5("Minions"),
                                min = 0,  max = 100, value = 0)
                    )
         
-            )   
+            )
         )
     )
 ))

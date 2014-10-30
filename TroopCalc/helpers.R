@@ -32,6 +32,8 @@ colnames(troop_costs) <- c("barbarian", 'archer', 'goblin', 'giant', 'wallbreake
 #dragon_costs <- seq(length.out=lvls, from=1800, to = 400*lvls) # L2 = 30,000
 #pekka_costs <- seq(length.out=lvls, from=1800, to = 400*lvls)  # L1 = 
 
+minion_costs <- seq(from = 6, to = (6+lvls), by=1)
+
 # USE THE TABLE LIKE: num_troops_desired * troops_table$wall_breakers[1] # returns total cost
 get_cost <- function(troop_type, level, num_troops) {
             
