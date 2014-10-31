@@ -5,7 +5,7 @@ troop_levels <- factor(c(1,2,3,4,5,6))
 
 lvls <- length(troop_levels)
 
-troop_types <- c("barbarian", "archer", "goblin", "giant", "wallbreaker", "wizard", "healer", "dragon", "pekka")
+troop_types <- c("barbarian", "archer", "goblin", "giant", "wallbreaker", "wizard", "healer", "dragon", "pekka", "minion")
 barbarian_costs <- seq(length.out=lvls, from=20, to=20*lvls)
 
 troop_costs <- as.data.frame(barbarian_costs)
@@ -23,22 +23,22 @@ giant_costs <- seq(length.out=lvls, from = 500, to = 500 * lvls)
 
 wallbreaker_costs <- seq(length.out=lvls-1, from=1000, to=500*lvls)
 
-dragon_costs <- c(25000, 30000, 35000, 40000)
+dragon_costs <- c(25000, 30000, 35000, 40000, NA, NA)
 
 #pekka_costs <- seq(length.out=lvls, from=1800, to = 400*lvls)  # L1 = 
 
 # DARK TROOPS # 
-minion_costs <- seq(from = 6, to = (6+lvls), by=1)
+minion_costs <- c(6,7,8,9,10,NA)
 
-troop_costs <- as.data.frame(cbind(barbarian_costs, archer_costs, goblin_costs, giant_costs))
+troop_costs <- as.data.frame(cbind(barbarian_costs, archer_costs, goblin_costs, giant_costs, minion_costs))
 
 # Hack
-troop_costs$dragon <- c(dragon_costs, NA, NA)
+troop_costs$dragon <- c(dragon_costs)
 
 troop_costs$wallbreaker <- c(wallbreaker_costs, NA)
 
 # Hackety hack
-mycols <- c("barbarian", 'archer', 'goblin', 'giant', 'dragon', "wallbreaker")
+mycols <- c("barbarian", 'archer', 'goblin', 'giant', 'minion', 'dragon', "wallbreaker")
 colnames(troop_costs) <- mycols
 
 # USE THE TABLE LIKE: num_troops_desired * troops_table$wall_breakers[1] # returns total cost

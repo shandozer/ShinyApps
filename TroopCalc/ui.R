@@ -2,7 +2,7 @@ library(shiny)
 source("helpers.R")
 # ui.R
 # 
-VERSION = '1.3.1'
+VERSION = '1.3.2'
 
 shinyUI(fluidPage(title="TroopCalculator",
 #     titlePanel("TroopCalc"),
@@ -96,7 +96,8 @@ shinyUI(fluidPage(title="TroopCalculator",
                    h5(textOutput("gobcost")),
                    h5(textOutput("giantcost")),
                    h5(textOutput("wbcost")),
-                   h5(textOutput("dragcost"))
+                   h5(textOutput("dragcost")),
+                   h5(textOutput("minioncost"))
                 ),
             column(5, 
                     h3(helpText("Army Totals", align= "left")),

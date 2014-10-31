@@ -23,7 +23,7 @@ shinyServer(function(input, output) {
     })
     
     output$totaldark <- renderText({
-        paste("Total Army Dark Elixir Expenses: ", input$num_minion * 6) # L1 minions 
+        paste("Total Army Dark Elixir Expenses: ", get_cost('minion', input$minion_lvl, input$num_minion)) 
     })
     
     output$totalsize <- renderText({
@@ -31,9 +31,9 @@ shinyServer(function(input, output) {
                                        input$num_arch,
                                        input$num_gob,
                                        (input$num_giant * 5),
-                                       (input$num_wb * 2),
+                                       (input$num_wb * 2),  # add Wizards and healers here somehwere
                                        (input$num_drag * 20),
-                                       (input$num_minion * 2)
+                                       (input$num_minion * 2)   # section for Dark Dudes, to be appended
                                        )
         )
     })
@@ -66,5 +66,11 @@ shinyServer(function(input, output) {
         paste(input$num_drag, "Dragons", 
               " at level ", input$drag_lvl,
               " will cost you: ", get_cost('dragon', input$drag_lvl, input$num_drag), " Elixir")
+    })
+    
+    output$minioncost <- renderText({
+        paste(input$num_minion, "Minions",
+              "at level ", input$minion_lvl, 
+              " will cost you: ", get_cost('minion', input$minion_lvl, input$num_minion), " Dark Elixir")
     })
 })
