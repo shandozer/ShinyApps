@@ -55,50 +55,62 @@ shinyUI(fluidPage(title="TroopCalculator",
                                                      "Archers" = 2, 
                                                      "Goblins" = 3,
                                                      "Giants" = 4,
-                                                     "Wall Breakers" = 5,
+                                                     "Wallbreakers" = 5,
                                                      "Wizards" = 6,
                                                      "Healers" = 7,
                                                      "Dragons" = 8,
-                                                     "Pekka" = 9),
+                                                     "Pekkas" = 9),
                                       selected = 1)),
             column(4,
                    radioButtons("barb_lvl", label = h4("Barbarians", align = "center", color = "black"),
                                 choices = list("1" = 1, "2" = 2,
                                                "3" = 3, "4" = 4,
                                                "5" = 5, "6" = 6),
-                                selected = 1, inline=T),
+                                selected = 4, inline=T),
                    
                    radioButtons("arch_lvl", label = h4("Archers", align = "center"),
                                 choices = list("1" = 1, "2" = 2,
                                                "3" = 3, "4" = 4,
                                                "5" = 5, "6" = 6),
-                                selected = 1, inline=T),
+                                selected = 4, inline=T),
                    
                    radioButtons("gob_lvl", label = h4("Goblins", align = "center"),
                                 choices = list("1" = 1, "2" = 2,
                                                "3" = 3, "4" = 4,
                                                "5" = 5, "6" = 6),
-                                selected = 1, inline=T),
+                                selected = 4, inline=T),
                    
                    radioButtons("giant_lvl", label = h4("Giants", align = "center"),
                                 choices = list("1" = 1, "2" = 2,
                                                "3" = 3, "4" = 4,
                                                "5" = 5, "6" = 6),
-                                selected = 1, inline=T),
+                                selected = 4, inline=T),
                    
                    radioButtons("wb_lvl", label = h4("Breakers", align = "center"),
                                 choices = list("1" = 1, "2" = 2,
                                                "3" = 3, "4" = 4,
                                                "5" = 5, "6" = 6),
-                                selected = 1, inline=T)
+                                selected = 4, inline=T),
+                   
+                   radioButtons("drag_lvl", label = h4("Dragons", align = "center"),
+                                choices = list("1" = 1, "2" = 2,
+                                               "3" = 3, "4" = 4),
+                                selected = 2, inline=T)
                    ),
             fluidRow(
-                h4("Army Costs", align= "center"),
-                h5(textOutput("text1"))
+                h4("Troop Costs", align= "center"),
+                h5(textOutput("barbcost")),
+                h5(textOutput("archcost")),
+                h5(textOutput("gobcost")),
+                h5(textOutput("giantcost")),
+                h5(textOutput("wbcost")),
+                h5(textOutput("dragcost"))
             ),
+            
             fluidRow(
                 h4("Total Army Costs", align= "left"),
-                h5(textOutput("text2"))
+                h5(textOutput("totalcost")),
+                h5(textOutput("totalsize"))
             )
         ),
         br(),
@@ -116,23 +128,25 @@ shinyUI(fluidPage(title="TroopCalculator",
             column(3, 
                   
                    sliderInput("num_barb", label = h5("Barbarians"),
-                               min = 0, max = 200, value = 40),  
+                               min = 0, max = 200, value = 44),  
                
                    sliderInput("num_arch", label = h5("Archers"),
                                min = 0, max = 200, value = 60),  
               
                    sliderInput("num_gob", label = h5("Goblins"),
-                               min = 0, max = 200, value = 30),  
+                               min = 0, max = 200, value = 40),  
               
                    sliderInput("num_giant", label = h5("Giants"),
-                               min = 0, max = 40, value = 4)
+                               min = 0, max = 40, value = 8)
                    ),
             
             column(3, 
                    sliderInput("num_wb", label = h5("Wall Breakers"),
-                               min = 0, max = 14, value = 4, step = 1),
-                   sliderInput("num_mins", label = h5("Minions"),
-                               min = 0,  max = 100, value = 0)
+                               min = 0, max = 14, value = 8, step = 1),
+                   sliderInput("num_minion", label = h5("Minions"),
+                               min = 0,  max = 100, value = 0),
+                   sliderInput("num_drag", label = h5("Dragons"),
+                               min = 0, max = 10, value = 0)
                    )
         
             )
