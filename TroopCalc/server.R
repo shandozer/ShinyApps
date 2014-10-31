@@ -1,5 +1,6 @@
 library(shiny)
-
+# server.R
+# 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
     
@@ -10,8 +11,8 @@ shinyServer(function(input, output) {
               " at level ", input$barb_lvl,
               " will cost you: ", get_cost('barb', input$barb_lvl, input$num_barb), " Elixir")
     })
-    output$totalcost <- renderText({
-        paste("Total Army Elixir Costs: ", sum(get_cost('barb', input$barb_lvl, input$num_barb), 
+    output$totalelixir <- renderText({
+        paste("Total Army Elixir Expenses: ", sum(get_cost('barb', input$barb_lvl, input$num_barb), 
                                                get_cost('arch', input$arch_lvl, input$num_arch), 
                                                get_cost('gob', input$gob_lvl, input$num_gob), 
                                                get_cost('giant', input$giant_lvl, input$num_giant), 
@@ -19,6 +20,10 @@ shinyServer(function(input, output) {
                                                get_cost('dragon', input$drag_lvl, input$num_drag)
                                                )
         )
+    })
+    
+    output$totaldark <- renderText({
+        paste("Total Army Dark Elixir Expenses: ", input$num_minion * 6) # L1 minions 
     })
     
     output$totalsize <- renderText({

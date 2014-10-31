@@ -2,7 +2,7 @@ library(shiny)
 source("helpers.R")
 # ui.R
 # 
-VERSION = '1.3'
+VERSION = '1.3.1'
 
 shinyUI(fluidPage(title="TroopCalculator",
 #     titlePanel("TroopCalc"),
@@ -13,7 +13,9 @@ shinyUI(fluidPage(title="TroopCalculator",
         headerPanel(h1(paste("Welcome to TroopCalc", VERSION), align = "center")),
     #titlePanel("Welcome to TroopCalc"),
         sidebarLayout(position="right",
+            
             sidebarPanel(
+                h3(helpText("Select Troop Levels", align="center")),
                                 radioButtons("barb_lvl", label = h4("Barbarians", align = "center", color = "black"),
                                              choices = list("1" = 1, "2" = 2,
                                                             "3" = 3, "4" = 4,
@@ -41,8 +43,14 @@ shinyUI(fluidPage(title="TroopCalculator",
                                 radioButtons("wb_lvl", label = h4("Breakers", align = "center"),
                                              choices = list("1" = 1, "2" = 2,
                                                             "3" = 3, "4" = 4,
-                                                            "5" = 5, "6" = 6),
+                                                            "5" = 5),
                                              selected = 4, inline=T),
+                                
+                                radioButtons("minion_lvl", label = h4("Minions", align = "center"),
+                                             choices = list("1" = 1, "2" = 2,
+                                                            "3" = 3, "4" = 4,
+                                                            "5" = 5),
+                                             selected = 2, inline=T),
                                 
                                 radioButtons("drag_lvl", label = h4("Dragons", align = "center"),
                                              choices = list("1" = 1, "2" = 2,
@@ -51,7 +59,7 @@ shinyUI(fluidPage(title="TroopCalculator",
                          
                      ),
         mainPanel(
-            h3(helpText("Compose an army", align = "center")),
+            h3(helpText("Build An Army", align = "center")),
             fluidRow(
                 
                 column(4, 
@@ -92,7 +100,8 @@ shinyUI(fluidPage(title="TroopCalculator",
                 ),
             column(5, 
                     h3(helpText("Army Totals", align= "left")),
-                    h5(textOutput("totalcost")),
+                    h5(textOutput("totalelixir")),
+                    h5(textOutput("totaldark")),
                     h5(textOutput("totalsize"))
                 )
             )
