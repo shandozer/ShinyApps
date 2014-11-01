@@ -3,6 +3,7 @@ source("helpers.R")
 # ui.R
 # 
 VERSION = '1.3.2'
+MAJOR_VERSION = strtrim(VERSION,3)
 
 shinyUI(fluidPage(title="TroopCalculator",
 #     titlePanel("TroopCalc"),
@@ -10,7 +11,7 @@ shinyUI(fluidPage(title="TroopCalculator",
     
     tags$head(
         tags$link(rel="stylesheet", type = "text/css", href="bootstrap.css")),
-        headerPanel(h1(paste("Welcome to TroopCalc", VERSION), align = "center")),
+        headerPanel(h1(paste("Welcome to TroopCalc", MAJOR_VERSION), align = "center")),
     #titlePanel("Welcome to TroopCalc"),
         sidebarLayout(position="right",
             
