@@ -15,7 +15,7 @@ shinyUI(fluidPage(title="TroopCalculator",
     #titlePanel("Welcome to TroopCalc"),
         sidebarLayout(position="right",
             
-            sidebarPanel(
+            sidebarPanel(width=3,
                 h3(helpText("Select Troop Levels", align="center")),
                                 radioButtons("barb_lvl", label = h4("Barbarians", color = "black"),
                                              choices = list("1" = 1, "2" = 2,
@@ -131,14 +131,38 @@ shinyUI(fluidPage(title="TroopCalculator",
                     h3(helpText("Army Totals", align= "left")),
                     h5(textOutput("totalelixir")),
                     h5(textOutput("totaldark")),
-                    h5(textOutput("totalsize"))
-                ),
-            column(5,
+                    h5(textOutput("totalsize")),
+                   br(),
                    h3(helpText("Spell Totals", align="left"))
+                   
+                ),
+            
+            column(3,
+                  h4(helpText("Add Spells")),
+                  selectInput("lightlvl", label = h6("Lightning Level"), 
+                              choices = list("N/A" = NA ,"1" = 1, 
+                                             "2" = 2, "3" = 3, "4" = 4,
+                                             "5" = 5), selected = 0),
+                  numericInput("num_lightnings", label = h6("Add Lightning"), value=0, min=0, max=5),
+                  
+                  selectInput("healvll", label = h6("Heal Level"), 
+                              choices = list("N/A" = NA ,"1" = 1, 
+                                             "2" = 2, "3" = 3, "4" = 4,
+                                             "5" = 5), selected = 0),
+                  
+                  selectInput("ragelvl", label = h6("Rage Level"), 
+                              choices = list("N/A" = NA ,"1" = 1, 
+                                             "2" = 2, "3" = 3, "4" = 4,
+                                             "5" = 5), selected = 0),
+                  
+                  selectInput("jumplvl", label = h6("Jump Level"), 
+                              choices = list("N/A" = NA ,"1" = 1, 
+                                             "2" = 2, "3" = 3, "4" = 4,
+                                             "5" = 5), selected = 0)
+                  )
                    
                 )
             )
         )
     )
-)
 )

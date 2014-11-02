@@ -1063,9 +1063,9 @@ input,
 button,
 select,
 textarea {
-  font-size: 14px;
+  font-size: 10px;  /*14px orig*/
   font-weight: normal;
-  line-height: 20px;
+  line-height: 20px; /*20px originally*/
 }
 
 input,
@@ -2916,7 +2916,7 @@ table th[class*="span"],
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 160px;
+  min-width: 80px; /*changing this from 160px;*/
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;

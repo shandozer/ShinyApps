@@ -41,6 +41,23 @@ troop_costs$wallbreaker <- c(wallbreaker_costs, NA)
 mycols <- c("barbarian", 'archer', 'goblin', 'giant', 'wizard', 'healer','minion', 'dragon', "wallbreaker")
 colnames(troop_costs) <- mycols
 
+# SPELLS
+lightning_costs <- c(5000, 10000, 15000, 20000, 25000)
+heal_costs <- c(5000, 10000, 15000, 20000, 25000)
+rage_costs <- c(15000, 20000, 25000, 30000, 35000)
+jump_costs <- c()
+freeze_costs <- c()
+
+spell_costs <- as.data.frame(cbind(lightning_costs, heal_costs, rage_costs, jump_costs, freeze_costs))
+
+get_spell_cost <- function(spell_name, spell_level, num_spells) {
+    
+    per_item_cost = spell_costs[spell_level, c(grep(spell_name, colnames(spell_costs)))]
+    spell_cost = num_spells * per_item_cost
+    
+    spell_cost
+}
+
 # USE THE TABLE LIKE: num_troops_desired * troops_table$wall_breakers[1] # returns total cost
 get_cost <- function(troop_type, level, num_troops) {
             
