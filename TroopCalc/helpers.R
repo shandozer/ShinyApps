@@ -6,13 +6,14 @@ troop_levels <- factor(c(1,2,3,4,5,6))
 lvls <- length(troop_levels)
 
 troop_types <- c("barbarian", "archer", "goblin", "giant", "wallbreaker", "wizard", "healer", "dragon", "pekka", "minion")
+
 barbarian_costs <- seq(length.out=lvls, from=20, to=20*lvls)
 
 troop_costs <- as.data.frame(barbarian_costs)
  
 archer_costs <- seq(length.out=lvls, from=40, to = 40*lvls)
 
-goblin_costs <- barb_costs
+goblin_costs <- barbarian_costs
 
 giant_costs <- seq(length.out=lvls, from = 500, to = 500 * lvls)
 
