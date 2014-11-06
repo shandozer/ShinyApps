@@ -115,7 +115,7 @@ shinyUI(fluidPage(title="TroopCalculator",
             ),
             
         fluidRow(        
-            column(5,
+            column(6,
                    h3(helpText("Troop Costs", align= "center")),
                    h5(textOutput("barbcost")),
                    h5(textOutput("archcost")),
@@ -133,7 +133,8 @@ shinyUI(fluidPage(title="TroopCalculator",
                     h5(textOutput("totaldark")),
                     h5(textOutput("totalsize")),
                    br(),
-                   h3(helpText("Spell Totals", align="left"))
+                   h3(helpText("Spell Totals", align="left")),
+                    h4("Coming Soon...")
                    
                 ),
             
